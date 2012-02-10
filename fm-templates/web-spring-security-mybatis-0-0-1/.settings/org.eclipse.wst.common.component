@@ -1,5 +1,5 @@
 <project-modules id="moduleCoreId" project-version="1.5.0">
-  <wb-module deploy-name="web-spring-security-mybatis">
+  <wb-module deploy-name="web-spring-security-mybatis-0-0-1">
     <wb-resource deploy-path="/" source-path="src/main/java"/>
     <wb-resource deploy-path="/" source-path="src/main/resources"/>
   </wb-module>

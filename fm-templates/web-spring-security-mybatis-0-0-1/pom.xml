@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>com.fm.template</groupId>
-	<artifactId>web-spring-security-mybatis</artifactId>
+	<artifactId>web-spring-security-mybatis-0-0-1</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>web-spring-security-mybatis</name>
+	<name>web-spring-security-mybatis-0-0-1</name>
 	<url>http://maven.apache.org</url>
 	
 	<properties>
