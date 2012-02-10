@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.fm.template.model">
+
+	<class name="User" table="user">
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		<property name="username" column="username"/>
+		<property name="password" column="password"/>
+		<property name="email" column="email"/>
+		<property name="enabled" column="enabled"/>
+		<property name="accountExpired" column="account_expired"/>
+		<property name="accountLocked" column="account_locked"/>
+		<property name="credentialsExpired" column="credentials_expired"/>
+		<set name="roles" table="user_role" lazy="false">
+			<key column="user_id" />
+			<many-to-many column="role_id" class="com.fm.template.model.Role" />
+		</set>
+	</class>
+	
+	<query name="User.getUserByUsername">
+		from User u
+		where u.username = :username
+	</query>
+	
+</hibernate-mapping>
