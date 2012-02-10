@@ -2,6 +2,7 @@ package com.fm.template.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -38,6 +39,12 @@ public class User implements UserDetails {
 	@NotEmpty
 	private Set<Role> roles = new HashSet<Role>();
 	
+	private String firstName;
+	private String lastName;
+	private Integer loginOk;
+	private Date lastLoginOk;
+	
+	
 	public User() {
 		
 	}
@@ -48,6 +55,7 @@ public class User implements UserDetails {
 		this.accountExpired = false;
 		this.accountLocked = false;
 		this.credentialsExpired = false;
+		this.loginOk = 0;
 	}
 	
 	public String getNewPassword() {
@@ -161,10 +169,42 @@ public class User implements UserDetails {
 	public boolean isCredentialsNonExpired() {
 		return !isCredentialsExpired();
 	}
-	
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public Integer getLoginOk() {
+		return loginOk;
+	}
+
+	public void setLoginOk(Integer loginOk) {
+		this.loginOk = loginOk;
+	}
+
+	public Date getLastLoginOk() {
+		return lastLoginOk;
+	}
+
+	public void setLastLoginOk(Date lastLoginOk) {
+		this.lastLoginOk = lastLoginOk;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", enabled=" + enabled + ", accountExpired=" + accountExpired + ", accountLocked=" + accountLocked + ", credentialsExpired=" + credentialsExpired + ", roles=" + roles + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", newPassword=" + newPassword + ", confirmNewPassword=" + confirmNewPassword + ", email=" + email + ", enabled=" + enabled + ", accountExpired=" + accountExpired + ", accountLocked=" + accountLocked + ", credentialsExpired=" + credentialsExpired + ", roles=" + roles + ", firstName=" + firstName + ", lastName=" + lastName + ", loginOk=" + loginOk + ", lastLoginOk=" + lastLoginOk + "]";
 	}
 
 	@Override
@@ -173,10 +213,16 @@ public class User implements UserDetails {
 		int result = 1;
 		result = prime * result + (accountExpired ? 1231 : 1237);
 		result = prime * result + (accountLocked ? 1231 : 1237);
+		result = prime * result + ((confirmNewPassword == null) ? 0 : confirmNewPassword.hashCode());
 		result = prime * result + (credentialsExpired ? 1231 : 1237);
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + (enabled ? 1231 : 1237);
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((lastLoginOk == null) ? 0 : lastLoginOk.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((loginOk == null) ? 0 : loginOk.hashCode());
+		result = prime * result + ((newPassword == null) ? 0 : newPassword.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((roles == null) ? 0 : roles.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
@@ -196,6 +242,11 @@ public class User implements UserDetails {
 			return false;
 		if (accountLocked != other.accountLocked)
 			return false;
+		if (confirmNewPassword == null) {
+			if (other.confirmNewPassword != null)
+				return false;
+		} else if (!confirmNewPassword.equals(other.confirmNewPassword))
+			return false;
 		if (credentialsExpired != other.credentialsExpired)
 			return false;
 		if (email == null) {
@@ -205,10 +256,35 @@ public class User implements UserDetails {
 			return false;
 		if (enabled != other.enabled)
 			return false;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (lastLoginOk == null) {
+			if (other.lastLoginOk != null)
+				return false;
+		} else if (!lastLoginOk.equals(other.lastLoginOk))
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (loginOk == null) {
+			if (other.loginOk != null)
+				return false;
+		} else if (!loginOk.equals(other.loginOk))
+			return false;
+		if (newPassword == null) {
+			if (other.newPassword != null)
+				return false;
+		} else if (!newPassword.equals(other.newPassword))
 			return false;
 		if (password == null) {
 			if (other.password != null)

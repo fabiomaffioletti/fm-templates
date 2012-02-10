@@ -3,7 +3,7 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
 DROP SCHEMA IF EXISTS `template` ;
-CREATE SCHEMA IF NOT EXISTS `template` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+CREATE SCHEMA IF NOT EXISTS `template` DEFAULT CHARACTER SET utf8 ;
 USE `template` ;
 
 -- -----------------------------------------------------
@@ -20,6 +20,10 @@ CREATE  TABLE IF NOT EXISTS `template`.`user` (
   `account_expired` CHAR(1) NOT NULL ,
   `account_locked` CHAR(1) NOT NULL ,
   `credentials_expired` CHAR(1) NOT NULL ,
+  `first_name` VARCHAR(45) NULL ,
+  `last_name` VARCHAR(45) NULL ,
+  `login_ok` INT NOT NULL ,
+  `last_login_ok` DATETIME NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) ,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
@@ -34,7 +38,7 @@ DROP TABLE IF EXISTS `template`.`role` ;
 CREATE  TABLE IF NOT EXISTS `template`.`role` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `role_name` VARCHAR(45) NOT NULL ,
-  `role_description` VARCHAR(45) NULL ,
+  `role_description` VARCHAR(45) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 

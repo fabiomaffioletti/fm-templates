@@ -36,6 +36,18 @@
 								</div>
 							</div>
 							<div class="clearfix">
+								<label for="firstName">First name</label>
+								<div class="input">
+									<form:input path="firstName" />
+								</div>
+							</div>
+							<div class="clearfix">
+								<label for="lastName">Last name</label>
+								<div class="input">
+									<form:input path="lastName" />
+								</div>
+							</div>
+							<div class="clearfix">
 								<form:label path="newPassword">Password</form:label>
 								<div class="input">
 									<form:password path="newPassword" showPassword="true" />
