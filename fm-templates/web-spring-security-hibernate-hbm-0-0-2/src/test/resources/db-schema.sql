@@ -12,7 +12,7 @@ USE `template` ;
 DROP TABLE IF EXISTS `template`.`user` ;
 
 CREATE  TABLE IF NOT EXISTS `template`.`user` (
-  `user_id` INT NOT NULL AUTO_INCREMENT ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `username` VARCHAR(45) NOT NULL ,
   `password` VARCHAR(45) NOT NULL ,
   `email` VARCHAR(45) NOT NULL ,
@@ -20,7 +20,7 @@ CREATE  TABLE IF NOT EXISTS `template`.`user` (
   `account_expired` CHAR(1) NOT NULL ,
   `account_locked` CHAR(1) NOT NULL ,
   `credentials_expired` CHAR(1) NOT NULL ,
-  PRIMARY KEY (`user_id`) ,
+  PRIMARY KEY (`id`) ,
   UNIQUE INDEX `username_UNIQUE` (`username` ASC) ,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
 ENGINE = InnoDB;
@@ -32,10 +32,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `template`.`role` ;
 
 CREATE  TABLE IF NOT EXISTS `template`.`role` (
-  `role_id` INT NOT NULL AUTO_INCREMENT ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `role_name` VARCHAR(45) NOT NULL ,
   `role_description` VARCHAR(45) NULL ,
-  PRIMARY KEY (`role_id`) )
+  PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
 
@@ -52,12 +52,12 @@ CREATE  TABLE IF NOT EXISTS `template`.`user_role` (
   INDEX `fk_user_role_2` (`role_id` ASC) ,
   CONSTRAINT `fk_user_role_1`
     FOREIGN KEY (`user_id` )
-    REFERENCES `template`.`user` (`user_id` )
+    REFERENCES `template`.`user` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_role_2`
     FOREIGN KEY (`role_id` )
-    REFERENCES `template`.`role` (`role_id` )
+    REFERENCES `template`.`role` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
