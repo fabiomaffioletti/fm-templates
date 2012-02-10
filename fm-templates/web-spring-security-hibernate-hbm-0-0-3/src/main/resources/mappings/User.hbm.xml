@@ -19,6 +19,10 @@
 			<key column="user_id" />
 			<many-to-many column="role_id" class="com.fm.template.model.Role" />
 		</set>
+		<property name="firstName" column="first_name"/>
+		<property name="lastName" column="last_name"/>
+		<property name="loginOk" column="login_ok"/>
+		<property name="lastLoginOk" column="last_login_ok"/>
 	</class>
 	
 	<query name="User.getUserByUsername">

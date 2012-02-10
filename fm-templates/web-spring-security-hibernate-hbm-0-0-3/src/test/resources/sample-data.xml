@@ -10,6 +10,10 @@
 		<column>account_expired</column>
 		<column>account_locked</column>
 		<column>credentials_expired</column>
+		<column>first_name</column>
+		<column>last_name</column>
+		<column>login_ok</column>
+		<column>last_login_ok</column>
 		<row>
 			<value>1</value>
 			<value>user</value>
@@ -19,6 +23,10 @@
 			<value>0</value>
 			<value>0</value>
 			<value>0</value>
+			<value>Jim</value>
+			<value>Parsons</value>
+			<value>0</value>
+			<null/>
 		</row>
 		<row>
 			<value>2</value>
@@ -29,6 +37,10 @@
 			<value>0</value>
 			<value>0</value>
 			<value>0</value>
+			<value>Neil Patrick</value>
+			<value>Harris</value>
+			<value>0</value>
+			<null/>
 		</row>
 	</table>
 	

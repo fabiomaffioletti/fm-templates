@@ -11,13 +11,26 @@
 		http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 	
 	<http auto-config="true">
-		<form-login login-page="/login.jsp" default-target-url="/home.html" authentication-failure-url="/login.jsp?error=true" login-processing-url="/j_security_check"/>
-		<logout invalidate-session="true" logout-url="/logout.jsp" />
+		<form-login login-page="/login.jsp"  login-processing-url="/j_security_check" authentication-success-handler-ref="loginSuccessHandler" authentication-failure-handler-ref="loginFailureHandler" />
+		<logout invalidate-session="true" success-handler-ref="logoutHandler" logout-url="/logout.jsp" />
 		
 		<intercept-url pattern="/home.html" access="ROLE_ADMIN,ROLE_USER" />
 		<intercept-url pattern="/admin.html" access="ROLE_ADMIN" />
 		<intercept-url pattern="/user.html" access="ROLE_ADMIN,ROLE_USER" />
     </http>
+    
+	<!-- Login success -->
+    <beans:bean id="loginSuccessHandler" class="com.fm.template.security.LoginSuccessHandler">
+    	<beans:property name="userManager" ref="userManager" />
+    </beans:bean>
+    
+    <!-- Login failure -->
+    <beans:bean id="loginFailureHandler" class="com.fm.template.security.LoginFailureHandler">
+    	<beans:property name="defaultFailureUrl" value="/login.jsp?error=true" />
+    </beans:bean>
+    
+    <!-- Logout -->
+    <beans:bean id="logoutHandler" class="com.fm.template.security.LogoutHandler" />
     
     <authentication-manager alias="authentication-manager">
     	<authentication-provider user-service-ref="userManager">
