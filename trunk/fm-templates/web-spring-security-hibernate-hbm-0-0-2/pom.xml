@@ -5,10 +5,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.fm.template</groupId>
-	<artifactId>web-spring-security-hibernate-hbm</artifactId>
+	<artifactId>web-spring-security-hibernate-hbm-0-0-2</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>web-spring-security-hibernate-hbm</name>
+	<name>web-spring-security-hibernate-hbm-0-0-2</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
