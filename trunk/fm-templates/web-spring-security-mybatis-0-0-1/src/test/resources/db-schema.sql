@@ -15,7 +15,7 @@ CREATE  TABLE IF NOT EXISTS `template`.`user` (
   `user_id` INT NOT NULL AUTO_INCREMENT ,
   `username` VARCHAR(45) NOT NULL ,
   `password` VARCHAR(45) NOT NULL ,
-  `email` VARCHAR(45) NULL ,
+  `email` VARCHAR(45) NOT NULL ,
   `enabled` CHAR(1) NOT NULL ,
   `account_expired` CHAR(1) NOT NULL ,
   `account_locked` CHAR(1) NOT NULL ,
