@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Plugins</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/prettify.css" type="text/css" rel="stylesheet" />
+
+<style type="text/css">
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	
+	.sidebar-nav {
+		padding: 9px 0;
+	}
+</style>
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/prettify.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/menuize.js"></script>
+<script type="text/javascript" src="js/ajax-to-table.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="index.html">jQuery Plugins</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span3">
+				<div class="well sidebar-nav" id="sidebar-menu">
+				</div>
+			</div>
+
+			<div class="span9">
+				<div class="row-fluid">
+					<div class="span12">
+						<h2>Information</h2>
+						<p>Very simple plugin that displays tabular data in json format in vertical or horizontal mode, translating <code>th</code> content specifying it in the <code>props</code> parameter.</p>
+						
+						<h2>Usage</h2>
+						<pre class="prettyprint linenums">
+$("#ajax-to-table-vertical").ajaxtotable({data: jvertical, orientation: 'v', props: props});
+$("#ajax-to-table-horizontal").ajaxtotable({data: jhorizontal, orientation: 'h', props: props});</pre>
+
+where json vertical and horizontal are like:
+
+<pre class="prettyprint linenums">
+var jvertical = {
+	"id": "0001",
+	"cmp": "HTC",
+	"model": "HTC Desire",
+	"price": "300 EUR"
+};
+
+var jhorizontal = [
+	{
+	"id": "0001",
+	"cmp": "HTC",
+	"model": "HTC Desire",
+	"price": "300 EUR"
+	},
+	{
+		"id": "0002",
+		"cmp": "Apple",
+		"model": "iPhone 4s",
+		"price": "520 EUR"
+	},
+	{
+		"id": "0003",
+		"cmp": "Apple",
+		"model": "iPad 3G",
+		"price": "600 EUR"
+	}
+];
+</pre>
+
+
+and props is like:
+<pre class="prettyprint linenums">
+var props = {
+	"id": "ID",
+	"cmp": "Company",
+	"model": "Model",
+	"price": "Price"
+};
+</pre>
+						<h3>Parameters</h3>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>data</td>
+									<td>Data to be displayed in json format</td>
+								</tr>
+								<tr>
+									<td>orientation</td>
+									<td>Table orientation. Can be <code>v</code> or <code>h</code> meaning "vertical" or "horizontal"</td>
+								</tr>
+								<tr>
+									<td>props</td>
+									<td>It is a json containing data to be displayed and related text to be shown in the <code>th</code></td>
+								</tr>
+							</tbody>
+						</table>
+						
+						<h2>Result</h2>
+						<h3>Vertical orientation</h3>
+						<div id="ajax-to-table-vertical"></div>
+						<h3>Horizontal orientation</h3>
+						<div id="ajax-to-table-horizontal"></div>
+						
+						<h2>View code</h2>
+						<p>View this plugin code here: <a href="js/ajax-to-table.js" target="blank">ajax-to-table.js</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+<script>
+	$("#sidebar-menu").menuize();
+	
+	var props = {
+		"id": "ID",
+		"cmp": "Company",
+		"model": "Model",
+		"price": "Price"
+	};
+	
+	
+	var jhorizontal = [
+	                   {
+						"id": "0001",
+						"cmp": "HTC",
+						"model": "HTC Desire",
+						"price": "300 EUR"
+						},
+						{
+							"id": "0002",
+							"cmp": "Apple",
+							"model": "iPhone 4s",
+							"price": "520 EUR"
+						},
+						{
+							"id": "0003",
+							"cmp": "Apple",
+							"model": "iPad 3G",
+							"price": "600 EUR"
+						}
+					   ];
+	
+	var jvertical = {
+			"id": "0001",
+			"cmp": "HTC",
+			"model": "HTC Desire",
+			"price": "300 EUR"
+		};
+	
+	$("#ajax-to-table-vertical").ajaxtotable({data: jvertical, orientation: 'v', props: props});
+	$("#ajax-to-table-horizontal").ajaxtotable({data: jhorizontal, orientation: 'h', props: props});
+</script>
+
+</body>
+</html>
