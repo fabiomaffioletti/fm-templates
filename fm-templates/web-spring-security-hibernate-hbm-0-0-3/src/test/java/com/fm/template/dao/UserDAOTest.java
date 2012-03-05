@@ -2,7 +2,10 @@ package com.fm.template.dao;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +36,21 @@ public class UserDAOTest {
 		assertTrue(user.getRoles().size() == 1);
 		Role userRole = user.getRoles().iterator().next();
 		assertEquals("ROLE_USER", userRole.getRoleName());
+	}
+	
+	@Test
+	public void testGetUsers() {
+		List<User> users = userDAO.getUsers();
+		assertNotNull(users);
+		assertTrue(users.size() > 0);
+	}
+	
+	@Test
+	public void testGetUserById() {
+		User user = userDAO.getUserById(1);
+		assertNotNull(user);
+		user = userDAO.getUserById(999);
+		assertNull(user);
 	}
 	
 }
