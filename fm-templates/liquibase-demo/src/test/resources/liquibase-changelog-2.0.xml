@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
- 	<changeSet id="1" author="fabio">
+ 	<changeSet id="4" author="fabio">
  		<comment>Added column username to table user, created table user_option</comment>
 
  		<addColumn tableName="user">
