@@ -101,6 +101,7 @@
 						<goals>
 							<goal>updateSQL</goal>
 							<goal>update</goal>
+							<goal>dbDoc</goal>
 						</goals>
 					</execution>
 				</executions>
