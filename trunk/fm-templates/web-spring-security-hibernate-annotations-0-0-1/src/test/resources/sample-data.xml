@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+
+	<table name="country">
+		<column>id</column>
+		<column>name</column>
+		<column>description</column>
+		<column>foundation</column>
+		<column>created_by</column>
+		<column>created_at</column>
+		<column>modified_by</column>
+		<column>modified_at</column>
+		<row>
+			<value>1</value>
+			<value>italy</value>
+			<value>italy</value>
+			<value>1990</value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+	</table>
+	
+	<table name="city">
+		<column>id</column>
+		<column>name</column>
+		<column>created_by</column>
+		<column>created_at</column>
+		<column>modified_by</column>
+		<column>modified_at</column>
+		<row>
+			<value>1</value>
+			<value>milan</value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>rome</value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>turin</value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+	</table>
+	
+	<table name="country_city">
+		<column>country_id</column>
+		<column>city_id</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>1</value>
+			<value>2</value>
+		</row>
+	</table>
+
+	<table name="user">
+		<column>id</column>
+		<column>username</column>
+		<column>password</column>
+		<column>email</column>
+		<column>enabled</column>
+		<column>account_expired</column>
+		<column>account_locked</column>
+		<column>credentials_expired</column>
+		<column>first_name</column>
+		<column>last_name</column>
+		<column>login_ok</column>
+		<column>last_login_ok</column>
+		<column>login_ko</column>
+		<column>last_login_ko</column>
+		<column>last_login_ok_ip_address</column>
+		<column>last_login_ko_ip_address</column>
+		<column>created_by</column>
+		<column>created_at</column>
+		<column>modified_by</column>
+		<column>modified_at</column>
+		<row>
+			<value>1</value>
+			<value>user1</value>
+			<value>12dea96fec20593566ab75692c9949596833adc9</value>
+			<value>user1@gmail.com</value>
+			<value>1</value>
+			<value>0</value>
+			<value>0</value>
+			<value>0</value>
+			<value>Jim</value>
+			<value>Parsons</value>
+			<value>0</value>
+			<null />
+			<value>0</value>
+			<null />
+			<null />
+			<null />
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>admin</value>
+			<value>d033e22ae348aeb5660fc2140aec35850c4da997</value>
+			<value>admin@gmail.com</value>
+			<value>1</value>
+			<value>0</value>
+			<value>0</value>
+			<value>0</value>
+			<value>Neil Patrick</value>
+			<value>Harris</value>
+			<value>0</value>
+			<null />
+			<value>0</value>
+			<null />
+			<null />
+			<null />
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>user2</value>
+			<value>12dea96fec20593566ab75692c9949596833adc9</value>
+			<value>user2@gmail.com</value>
+			<value>1</value>
+			<value>0</value>
+			<value>0</value>
+			<value>0</value>
+			<value>Jim</value>
+			<value>Parsons</value>
+			<value>0</value>
+			<null />
+			<value>0</value>
+			<null />
+			<null />
+			<null />
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>user3</value>
+			<value>12dea96fec20593566ab75692c9949596833adc9</value>
+			<value>user3@gmail.com</value>
+			<value>1</value>
+			<value>0</value>
+			<value>0</value>
+			<value>0</value>
+			<value>Jim</value>
+			<value>Parsons</value>
+			<value>0</value>
+			<null />
+			<value>0</value>
+			<null />
+			<null />
+			<null />
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>user4</value>
+			<value>12dea96fec20593566ab75692c9949596833adc9</value>
+			<value>user4@gmail.com</value>
+			<value>1</value>
+			<value>0</value>
+			<value>0</value>
+			<value>0</value>
+			<value>Jim</value>
+			<value>Parsons</value>
+			<value>0</value>
+			<null />
+			<value>0</value>
+			<null />
+			<null />
+			<null />
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+	</table>
+
+	<table name="role">
+		<column>id</column>
+		<column>role_name</column>
+		<column>role_description</column>
+		<column>created_by</column>
+		<column>created_at</column>
+		<column>modified_by</column>
+		<column>modified_at</column>
+		<row>
+			<value>1</value>
+			<value>ROLE_USER</value>
+			<value>Role for simple users</value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>ROLE_ADMIN</value>
+			<value>Role for administrators</value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+	</table>
+
+	<table name="user_role">
+		<column>user_id</column>
+		<column>role_id</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>2</value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>4</value>
+			<value>1</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>1</value>
+		</row>
+	</table>
+
+	<table name="config">
+		<column>id</column>
+		<column>config_name</column>
+		<column>config_value</column>
+		<column>created_by</column>
+		<column>created_at</column>
+		<column>modified_by</column>
+		<column>modified_at</column>
+		<row>
+			<value>1</value>
+			<value>defaultUsersPageSize</value>
+			<value>25</value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>defaultUserActionsPageSize</value>
+			<value>25</value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>userActionsLogEnabled</value>
+			<value>true</value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+	</table>
+	
+	<table name="user_action">
+		<column>id</column>
+		<column>performed_by</column>
+		<column>performed_by_username</column>
+		<column>performed_on</column>
+		<column>performed_on_username</column>
+		<column>action_description</column>
+		<column>performed_at</column>
+		<column>created_by</column>
+		<column>created_at</column>
+		<column>modified_by</column>
+		<column>modified_at</column>
+		<row>
+			<value>1</value>
+			<value>1</value>
+			<value>user1</value>
+			<value>2</value>
+			<value>admin</value>
+			<value>User created</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+		<row>
+			<value>2</value>
+			<value>1</value>
+			<value>user1</value>
+			<null/>
+			<null/>
+			<value>Test action</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+		<row>
+			<value>3</value>
+			<value>2</value>
+			<value>admin</value>
+			<value>3</value>
+			<value>user2</value>
+			<value>User created</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+			<value>System</value>
+			<value><![CDATA[2012-11-02 12:18:00]]></value>
+		</row>
+	</table>
+	
+</dataset>

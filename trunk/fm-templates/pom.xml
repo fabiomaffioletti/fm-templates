@@ -7,4 +7,7 @@
   <packaging>pom</packaging>
   <name>fm-template-master</name>
   
+  <modules>
+    <module>web-spring-security-hibernate-annotations-0-0-1</module>
+  </modules>
 </project>
