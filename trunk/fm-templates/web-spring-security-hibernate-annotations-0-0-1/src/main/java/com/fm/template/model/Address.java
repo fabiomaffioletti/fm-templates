@@ -9,6 +9,12 @@ import org.hibernate.validator.constraints.Length;
 @Embeddable
 public class Address {
 
+	@Column(name = "first_name")
+	@Length(max = 100, message = "{user.firstName.length}")
+	private String firstName;
+	@Column(name = "last_name")
+	@Length(max = 100, message = "{user.lastName.length}")
+	private String lastName;
 	@Column(name = "street")
 	@Length(max = 255, message = "{user.street.length}")
 	private String street;
@@ -30,6 +36,22 @@ public class Address {
 
 	public Address() {
 
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getStreet() {

@@ -32,6 +32,7 @@ public class LoginFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 			user.getUserLoginStatistic().setLoginKo(user.getUserLoginStatistic().getLoginKo() + 1);
 			user.getUserLoginStatistic().setLastLoginKoIPAddress(request.getRemoteAddr());
 			userManager.update(user, true);
+			//FIXME fabio BUG in user action manager NPE
 
 		} catch (UsernameNotFoundException e) {
 			// do nothing
