@@ -53,7 +53,17 @@ body {
 					  </ul>
 				  </li>
 				  <li><a href="admin-list-user-actions.html">User actions</a></li>
-				  <li><a href="logout.jsp">Logout</a></li>
+				</ul>
+				<ul class="nav pull-right">
+					<auth:authentication property="principal.username" var="username"/>
+					<li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#"><strong><c:out value="${username}" escapeXml="true" /></strong> <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="user-profile.html">Profile</a></li>
+							<li><a href="user-profile-password.html">Change password</a></li>
+						</ul>
+					</li>
+					<li class="divider-vertical"></li>
+					<li><a href="logout.jsp">Logout</a></li>
 				</ul>
 			</div>
 		</div>

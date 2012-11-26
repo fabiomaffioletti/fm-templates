@@ -12,5 +12,7 @@
         <mapping class="com.fm.template.model.Country"/>
         <mapping class="com.fm.template.model.City"/>
         <mapping class="com.fm.template.model.UserAction"/>
+        
+        <mapping class="com.fm.template.form.UserProfilePassword"/>
     </session-factory>
 </hibernate-configuration>

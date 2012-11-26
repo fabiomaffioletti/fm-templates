@@ -49,12 +49,6 @@ public class User extends BaseUser implements UserDetails {
 	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "role_id") })
 	@NotEmpty(message = "{user.roles.notEmpty}")
 	private Set<Role> roles;
-	@Column(name = "first_name")
-	@Length(max = 100, message = "{user.firstName.length}")
-	private String firstName;
-	@Column(name = "last_name")
-	@Length(max = 100, message = "{user.lastName.length}")
-	private String lastName;
 	@Embedded
 	private UserLoginStatistic userLoginStatistic;
 	@Embedded
@@ -212,19 +206,19 @@ public class User extends BaseUser implements UserDetails {
 	}
 
 	public String getFirstName() {
-		return firstName;
+		return this.address.getFirstName();
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.address.setFirstName(firstName);
 	}
 
 	public String getLastName() {
-		return lastName;
+		return this.address.getLastName();
 	}
 
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		this.address.setLastName(lastName);
 	}
 
 }

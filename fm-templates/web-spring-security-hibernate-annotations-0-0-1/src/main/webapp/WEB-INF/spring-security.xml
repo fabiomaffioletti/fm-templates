@@ -15,6 +15,8 @@
 		<logout logout-success-url="/admin-home.html" invalidate-session="true" logout-url="/logout.jsp" />
 		
 		<intercept-url pattern="/admin*.html" access="ROLE_ADMIN" />
+		
+		<intercept-url pattern="/user-profile*.html" access="ROLE_ADMIN,ROLE_USER" />
     </http>
     
     <beans:bean id="loginSuccessHandler" class="com.fm.template.security.LoginSuccessHandler">
