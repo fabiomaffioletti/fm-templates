@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/jdbc
+		http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	
+	<http auto-config="true">
+		<form-login login-page="/login.jsp" authentication-success-handler-ref="loginSuccessHandler" authentication-failure-handler-ref="loginFailureHandler" authentication-failure-url="/login.jsp?error=true" login-processing-url="/j_security_check"/>
+		<logout logout-success-url="/admin-home.html" invalidate-session="true" logout-url="/logout.jsp" />
+		
+		<intercept-url pattern="/admin*.html" access="ROLE_ADMIN" />
+    </http>
+    
+    <beans:bean id="loginSuccessHandler" class="com.fm.template.security.LoginSuccessHandler">
+    	<beans:property name="userManager" ref="userManager" />
+    	<beans:property name="defaultTargetUrl" value="/admin-home.html" />
+    	<beans:property name="alwaysUseDefaultTargetUrl" value="true" />
+    </beans:bean>
+    
+    <beans:bean id="loginFailureHandler" class="com.fm.template.security.LoginFailureHandler">
+    	<beans:property name="userManager" ref="userManager" />
+    	<beans:property name="defaultFailureUrl" value="/login.jsp?error=true" />
+    </beans:bean>
+    
+    <authentication-manager alias="authentication-manager">
+    	<authentication-provider user-service-ref="userManager">
+    		<password-encoder hash="sha" />
+    	</authentication-provider>
+    </authentication-manager>
+    
+</beans:beans>
