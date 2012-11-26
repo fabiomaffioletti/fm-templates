@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Sign in</title>
+<title><fmt:message key="webapp.name" /> | Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -69,13 +69,13 @@ body {
 				</div>
 			</c:if>
 			
-			<h2 class="form-signin-heading">Please sign in</h2>
+			<h2 class="form-signin-heading">Please login</h2>
 			<input type="text" name="j_username" id="j_username" class="input-block-level" placeholder="Username">
 			<input type="password" name="j_password" id="j_password" class="input-block-level" placeholder="Password">
 			<label class="checkbox">
 				<input type="checkbox" value="remember-me">Remember me
 			</label>
-			<button class="btn btn-large btn-primary" type="submit">Sign in</button>
+			<button class="btn btn-large btn-primary" type="submit">Login</button>
 		</form>
 
 	</div>

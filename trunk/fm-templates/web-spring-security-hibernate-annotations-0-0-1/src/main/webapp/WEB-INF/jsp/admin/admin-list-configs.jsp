@@ -1,5 +1,9 @@
 <%@ include file="/common/taglibs.jsp"%>
 
+<head>
+	<title>Administration</title>
+</head>
+
 <div class="row-fluid">
 	<div class="span12">
 		<jsp:include page="../../../common/messages.jsp" />

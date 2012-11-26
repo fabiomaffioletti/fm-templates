@@ -1,7 +1,7 @@
 <%@ include file="/common/taglibs.jsp"%>
 
 <head>
-	<title>Edit user</title>
+	<title>Administration</title>
 	
 	<style>
 		.form-horizontal .short-label {
