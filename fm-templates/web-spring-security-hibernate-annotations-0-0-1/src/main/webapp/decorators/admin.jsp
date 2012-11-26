@@ -37,7 +37,7 @@ body {
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container-fluid">
-				<a class="brand" href="#">Title</a>
+				<a class="brand" href="#">Administration</a>
 				<ul class="nav">
 				  <li><a href="admin-list-users.html">Users</a></li>
 				  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>

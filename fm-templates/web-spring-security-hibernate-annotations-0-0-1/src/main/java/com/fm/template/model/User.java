@@ -16,12 +16,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.Valid;
 
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
@@ -49,12 +50,15 @@ public class User extends BaseUser implements UserDetails {
 	@NotEmpty(message = "{user.roles.notEmpty}")
 	private Set<Role> roles;
 	@Column(name = "first_name")
+	@Length(max = 100, message = "{user.firstName.length}")
 	private String firstName;
 	@Column(name = "last_name")
+	@Length(max = 100, message = "{user.lastName.length}")
 	private String lastName;
 	@Embedded
 	private UserLoginStatistic userLoginStatistic;
 	@Embedded
+	@Valid
 	private Address address;
 
 	public User() {
@@ -187,8 +191,7 @@ public class User extends BaseUser implements UserDetails {
 	public Collection<GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		for (Role role : roles) {
-//			authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
-			authorities.add(new GrantedAuthorityImpl(role.getRoleName()));
+			authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
 		}
 		return authorities;
 	}

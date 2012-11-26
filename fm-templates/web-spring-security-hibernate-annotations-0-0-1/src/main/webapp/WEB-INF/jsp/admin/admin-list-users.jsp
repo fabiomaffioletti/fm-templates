@@ -1,6 +1,7 @@
 <%@ include file="/common/taglibs.jsp"%>
 
 <head>
+	<title>Administration</title>
 	<style>
 		th.order1 a {
 			width: 100%;

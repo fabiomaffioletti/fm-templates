@@ -2,21 +2,30 @@ package com.fm.template.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Digits;
+
+import org.hibernate.validator.constraints.Length;
 
 @Embeddable
 public class Address {
 
-	@Column(name="street")
+	@Column(name = "street")
+	@Length(max = 255, message = "{user.street.length}")
 	private String street;
-	@Column(name="number")
-	private Integer number;
-	@Column(name="zip_code")
+	@Column(name = "number")
+	@Length(max = 45, message = "{user.number.length}")
+	private String number;
+	@Column(name = "zip_code")
+	@Digits(fraction = 0, integer = 5, message = "{user.zipCode.digits}")
 	private Integer zipCode;
-	@Column(name="city")
+	@Column(name = "city")
+	@Length(max = 100, message = "{user.city.length}")
 	private String city;
-	@Column(name="state")
+	@Column(name = "state")
+	@Length(max = 100, message = "{user.state.length}")
 	private String state;
-	@Column(name="country")
+	@Column(name = "country")
+	@Length(max = 100, message = "{user.country.length}")
 	private String country;
 
 	public Address() {
@@ -31,11 +40,11 @@ public class Address {
 		this.street = street;
 	}
 
-	public Integer getNumber() {
+	public String getNumber() {
 		return number;
 	}
 
-	public void setNumber(Integer number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 
