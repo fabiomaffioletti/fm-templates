@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     		http://www.springframework.org/schema/beans/spring-beans.xsd
+     		http://www.springframework.org/schema/tx
+     		http://www.springframework.org/schema/tx/spring-tx.xsd
+     		http://www.springframework.org/schema/aop
+     		http://www.springframework.org/schema/aop/spring-aop.xsd
+     		http://www.springframework.org/schema/context 
+     		http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<aop:aspectj-autoproxy />
+	
+    <context:component-scan base-package="com.fm.template.multitenancy"/>
+    
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+	
+	<tx:annotation-driven/>
+	
+    <bean id="globalTransactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="globalSessionFactory" />
+		<qualifier value="globalTransactionManager" />
+    </bean>
+    
+	<bean id="globalSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="globalDataSource" />
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+		<qualifier value="globalSessionFactory" />
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<qualifier value="transactionManager" />
+    </bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+		<qualifier value="sessionFactory" />
+	</bean>
+	
+	<bean id="tenantDAO" class="com.fm.template.multitenancy.dao.impl.TenantHibernateDAOImpl">
+		<property name="globalSessionFactory" ref="globalSessionFactory" />
+	</bean>
+	
+	<bean id="dataSource" class="com.fm.template.multitenancy.routing.MultiTenancyServerRoutingDataSource">
+		<property name="defaultTargetDataSource" ref="globalDataSource" />
+		<property name="tenantDAO" ref="tenantDAO" />
+		<qualifier value="dataSource" />
+	</bean>
+	
+	<bean id="parentDataSource"	class="org.springframework.jdbc.datasource.DriverManagerDataSource"	abstract="true">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	
+	<bean id="globalDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jndi/multi_global" />
+		<property name="resourceRef" value="true" />
+	</bean>
+	
+</beans>
