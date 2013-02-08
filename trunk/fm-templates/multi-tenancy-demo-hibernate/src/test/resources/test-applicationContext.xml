@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+     		http://www.springframework.org/schema/beans/spring-beans.xsd
+     		http://www.springframework.org/schema/tx
+     		http://www.springframework.org/schema/tx/spring-tx.xsd
+     		http://www.springframework.org/schema/context 
+     		http://www.springframework.org/schema/context/spring-context.xsd
+     		http://www.springframework.org/schema/util
+     		http://www.springframework.org/schema/util/spring-util.xsd">
+	
+	<import resource="classpath:applicationContext.xml" />
+	
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:db-test.properties" />
+	</bean>
+	
+	<bean id="multiServer1" class="com.fm.template.multitenancy.model.Tenant">
+		<property name="id" value="1" />
+		<property name="keyName" value="tenant1" />
+		<property name="jndiName" value="jndi/tenant_1" />
+	</bean>
+	
+	<bean id="multiServer2" class="com.fm.template.multitenancy.model.Tenant">
+		<property name="id" value="2" />
+		<property name="keyName" value="tenant2" />
+		<property name="jndiName" value="jndi/tenant_2" />
+	</bean>
+	
+	<bean id="multiServer3" class="com.fm.template.multitenancy.model.Tenant">
+		<property name="id" value="3" />
+		<property name="keyName" value="tenant3" />
+		<property name="jndiName" value="jndi/tenant_3" />
+	</bean>
+	
+	<util:map id="targetDataSources">
+		<entry key="tenant1" value-ref="tenant1DataSource" />
+		<entry key="tenant2" value-ref="tenant2DataSource" />
+		<entry key="tenant3" value-ref="tenant3DataSource" />
+	</util:map>
+	
+	<bean id="tenantDAO" class="com.fm.template.multitenancy.dao.impl.TenantHibernateDAOImpl">
+		<property name="globalSessionFactory" ref="globalSessionFactory" />
+		<property name="targetDataSources" ref="targetDataSources" />
+	</bean>
+	
+	<bean id="dataSource" class="com.fm.template.multitenancy.routing.MultiTenancyServerRoutingDataSource">
+		<property name="defaultTargetDataSource" ref="globalDataSource" />
+		<property name="tenantDAO" ref="tenantDAO" />
+		<qualifier value="dataSource" />
+	</bean>
+
+	<bean id="globalDataSource" parent="parentDataSource">
+   		<property name="url" value="jdbc:mysql://localhost:3306/${jdbc.schema.global}"/>
+   		<qualifier value="globalDataSource" />
+	</bean>
+	
+	<bean id="tenant1DataSource" parent="parentDataSource">
+   		<property name="url" value="jdbc:mysql://localhost:3306/${jdbc.schema1}"/>
+	</bean>
+	
+	<bean id="tenant2DataSource" parent="parentDataSource">
+   		<property name="url" value="jdbc:mysql://localhost:3306/${jdbc.schema2}"/>
+	</bean>
+	
+	<bean id="tenant3DataSource" parent="parentDataSource">
+   		<property name="url" value="jdbc:mysql://localhost:3306/${jdbc.schema3}"/>
+	</bean>
+	
+</beans>
