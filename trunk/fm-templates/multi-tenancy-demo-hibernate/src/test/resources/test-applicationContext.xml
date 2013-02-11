@@ -18,19 +18,19 @@
 		<property name="location" value="classpath:db-test.properties" />
 	</bean>
 	
-	<bean id="multiServer1" class="com.fm.template.multitenancy.model.Tenant">
+	<bean id="tenantServer1" class="com.fm.template.multitenancy.model.Tenant">
 		<property name="id" value="1" />
 		<property name="keyName" value="tenant1" />
 		<property name="jndiName" value="jndi/tenant_1" />
 	</bean>
 	
-	<bean id="multiServer2" class="com.fm.template.multitenancy.model.Tenant">
+	<bean id="tenantServer2" class="com.fm.template.multitenancy.model.Tenant">
 		<property name="id" value="2" />
 		<property name="keyName" value="tenant2" />
 		<property name="jndiName" value="jndi/tenant_2" />
 	</bean>
 	
-	<bean id="multiServer3" class="com.fm.template.multitenancy.model.Tenant">
+	<bean id="tenantServer3" class="com.fm.template.multitenancy.model.Tenant">
 		<property name="id" value="3" />
 		<property name="keyName" value="tenant3" />
 		<property name="jndiName" value="jndi/tenant_3" />

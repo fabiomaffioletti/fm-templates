@@ -7,15 +7,15 @@ import com.fm.template.multitenancy.model.Tenant;
 
 public class MultiTenancyBaseTest extends AbstractJUnit4SpringContextTests {
 	
-	protected Tenant multiServer1;
-	protected Tenant multiServer2;
-	protected Tenant multiServer3;
+	protected Tenant tenantServer1;
+	protected Tenant tenantServer2;
+	protected Tenant tenantServer3;
 	
 	@Before
 	public void setUp() {
-		multiServer1 = (Tenant) applicationContext.getBean("multiServer1");
-		multiServer2 = (Tenant) applicationContext.getBean("multiServer2");
-		multiServer3 = (Tenant) applicationContext.getBean("multiServer3");
+		tenantServer1 = (Tenant) applicationContext.getBean("tenantServer1");
+		tenantServer2 = (Tenant) applicationContext.getBean("tenantServer2");
+		tenantServer3 = (Tenant) applicationContext.getBean("tenantServer3");
 	}
 
 }
