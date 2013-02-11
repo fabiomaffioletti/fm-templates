@@ -3,16 +3,16 @@ package com.fm.template.multitenancy.manager;
 import java.util.List;
 
 import com.fm.template.multitenancy.model.User;
-import com.fm.template.multitenancy.routing.MultiTenancyServer;
+import com.fm.template.multitenancy.routing.Tenant;
 
 public interface UserManager {
 	
-	List<User> all(MultiTenancyServer multiTenancyServer);
+	List<User> all(Tenant multiTenancyServer);
 	
-	void save(MultiTenancyServer multiTenancyServer, User user);
+	void save(Tenant multiTenancyServer, User user);
 	
-	void delete(MultiTenancyServer multiTenancyServer, User user);
+	void delete(Tenant multiTenancyServer, User user);
 	
-	User getByName(MultiTenancyServer multiTenancyServer, String name);
+	User getByName(Tenant multiTenancyServer, String name);
 
 }

@@ -1,6 +1,6 @@
 package com.fm.template.multitenancy.routing;
 
-public class MultiTenancyServer {
+public class Tenant {
 
 	private String key;
 	private String name;
