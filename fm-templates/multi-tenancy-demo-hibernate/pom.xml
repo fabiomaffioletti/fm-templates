@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>com.fm.template</groupId>
-	<artifactId>multi-tenancy-demo</artifactId>
+	<artifactId>multi-tenancy-demo-hibernate-0-0-1</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>multi-tenancy-demo</name>
+	<name>multi-tenancy-demo-hibernate</name>
 	<url>http://maven.apache.org</url>
 	
 	<properties>
@@ -130,7 +130,7 @@
 	</dependencies>
 	
 	<build>
-		<finalName>multi-tenancy-demo</finalName>
+		<finalName>multi-tenancy-demo-hibernate</finalName>
 		
 		<plugins>
 			<plugin>

@@ -46,9 +46,9 @@ public class MultiTenancyServerDAOTest {
 	@Test
 	@Transactional("globalTransactionManager")
 	public void getByName() {
-		Tenant server = multiTenancyServerDAO.get("server1");
+		Tenant server = multiTenancyServerDAO.get("tenant1");
 		Assert.assertNotNull(server);
-		Assert.assertEquals("jndi/multi_1", server.getJndiName());
+		Assert.assertEquals("jndi/tenant_1", server.getJndiName());
 	}
 	
 }

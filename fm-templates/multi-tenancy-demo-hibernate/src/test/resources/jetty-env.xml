@@ -1,39 +1,39 @@
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">  
-    <New id="multi_global" class="org.eclipse.jetty.plus.jndi.Resource">
-        <Arg>jndi/multi_global</Arg>
+    <New id="tenant_global" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>jndi/tenant_global</Arg>
         <Arg>
             <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
-                <Set name="url">jdbc:mysql://localhost:3306/multi_global</Set>
+                <Set name="url">jdbc:mysql://localhost:3306/tenant_global</Set>
                 <Set name="User">root</Set>
                 <Set name="Password">password</Set>
             </New>
         </Arg>
     </New>
-    <New id="multi_1" class="org.eclipse.jetty.plus.jndi.Resource">
-        <Arg>jndi/multi_1</Arg>
+    <New id="tenant_1" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>jndi/tenant_1</Arg>
         <Arg>
             <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
-                <Set name="url">jdbc:mysql://localhost:3306/multi_1</Set>
+                <Set name="url">jdbc:mysql://localhost:3306/tenant_1</Set>
                 <Set name="User">root</Set>
                 <Set name="Password">password</Set>
             </New>
         </Arg>
     </New>
-    <New id="multi_2" class="org.eclipse.jetty.plus.jndi.Resource">
-        <Arg>jndi/multi_2</Arg>
+    <New id="tenant_2" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>jndi/tenant_2</Arg>
         <Arg>
             <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
-                <Set name="url">jdbc:mysql://localhost:3306/multi_2</Set>
+                <Set name="url">jdbc:mysql://localhost:3306/tenant_2</Set>
                 <Set name="User">root</Set>
                 <Set name="Password">password</Set>
             </New>
         </Arg>
     </New>
-    <New id="multi_3" class="org.eclipse.jetty.plus.jndi.Resource">
-        <Arg>jndi/multi_3</Arg>
+    <New id="tenant_3" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg>jndi/tenant_3</Arg>
         <Arg>
             <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
-                <Set name="url">jdbc:mysql://localhost:3306/multi_3</Set>
+                <Set name="url">jdbc:mysql://localhost:3306/tenant_3</Set>
                 <Set name="User">root</Set>
                 <Set name="Password">password</Set>
             </New>
