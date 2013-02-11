@@ -4,18 +4,18 @@ import org.springframework.util.Assert;
 
 public class MultiTenancyServerContextHolder {
 
-	private static final ThreadLocal<MultiTenancyServer> contextHolder = new ThreadLocal<MultiTenancyServer>();
+	private static final ThreadLocal<Tenant> contextHolder = new ThreadLocal<Tenant>();
 
-	public static void setMultiTenancyServer(MultiTenancyServer multiTenancyServer) {
-		Assert.notNull(multiTenancyServer, "multiTenancyServer cannot be null");
-		contextHolder.set(multiTenancyServer);
+	public static void setTenant(Tenant tenant) {
+		Assert.notNull(tenant, "tenant cannot be null");
+		contextHolder.set(tenant);
 	}
 
-	public static MultiTenancyServer getMultiTenancyServer() {
-		return (MultiTenancyServer) contextHolder.get();
+	public static Tenant getTenant() {
+		return (Tenant) contextHolder.get();
 	}
 
-	public static void clearMultiTenancyServer() {
+	public static void clearTenant() {
 		contextHolder.remove();
 	}
 

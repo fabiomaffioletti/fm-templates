@@ -16,27 +16,27 @@
 		<property name="location" value="classpath:db-test.properties" />
 	</bean>
 	
-	<bean id="multiServer1" class="com.fm.template.multitenancy.routing.MultiTenancyServer">
-		<property name="key" value="multi1" />
-		<property name="name" value="multi1" />
+	<bean id="tenantServer1" class="com.fm.template.multitenancy.routing.Tenant">
+		<property name="key" value="tenant1" />
+		<property name="name" value="tenant1" />
 	</bean>
 	
-	<bean id="multiServer2" class="com.fm.template.multitenancy.routing.MultiTenancyServer">
-		<property name="key" value="multi2" />
-		<property name="name" value="multi2" />
+	<bean id="tenantServer2" class="com.fm.template.multitenancy.routing.Tenant">
+		<property name="key" value="tenant2" />
+		<property name="name" value="tenant2" />
 	</bean>
 	
-	<bean id="multiServer3" class="com.fm.template.multitenancy.routing.MultiTenancyServer">
-		<property name="key" value="multi3" />
-		<property name="name" value="multi3" />
+	<bean id="tenantServer3" class="com.fm.template.multitenancy.routing.Tenant">
+		<property name="key" value="tenant3" />
+		<property name="name" value="tenant3" />
 	</bean>
 
 	<bean id="dataSource" class="com.fm.template.multitenancy.routing.MultiTenancyServerRoutingDataSource">
 		<property name="targetDataSources">
-			<map key-type="com.fm.template.multitenancy.routing.MultiTenancyServer">
-				<entry key-ref="multiServer1" value-ref="multi1DataSource" />
-				<entry key-ref="multiServer2" value-ref="multi2DataSource" />
-				<entry key-ref="multiServer3" value-ref="multi3DataSource" />
+			<map key-type="com.fm.template.multitenancy.routing.Tenant">
+				<entry key-ref="tenantServer1" value-ref="tenant1DataSource" />
+				<entry key-ref="tenantServer2" value-ref="tenant2DataSource" />
+				<entry key-ref="tenantServer3" value-ref="tenant3DataSource" />
 			</map>
 		</property>
 		<property name="defaultTargetDataSource" ref="globalDataSource" />
@@ -46,15 +46,15 @@
    		<property name="url" value="jdbc:mysql://localhost:3306/${jdbc.schema.global}"/>
 	</bean>
 	
-	<bean id="multi1DataSource" parent="parentDataSource">
+	<bean id="tenant1DataSource" parent="parentDataSource">
    		<property name="url" value="jdbc:mysql://localhost:3306/${jdbc.schema1}"/>
 	</bean>
 	
-	<bean id="multi2DataSource" parent="parentDataSource">
+	<bean id="tenant2DataSource" parent="parentDataSource">
    		<property name="url" value="jdbc:mysql://localhost:3306/${jdbc.schema2}"/>
 	</bean>
 	
-	<bean id="multi3DataSource" parent="parentDataSource">
+	<bean id="tenant3DataSource" parent="parentDataSource">
    		<property name="url" value="jdbc:mysql://localhost:3306/${jdbc.schema3}"/>
 	</bean>
 	

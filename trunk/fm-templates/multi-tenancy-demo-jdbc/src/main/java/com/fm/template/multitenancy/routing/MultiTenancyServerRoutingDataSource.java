@@ -6,7 +6,7 @@ public class MultiTenancyServerRoutingDataSource extends AbstractRoutingDataSour
 
 	@Override
 	protected Object determineCurrentLookupKey() {
-		return MultiTenancyServerContextHolder.getMultiTenancyServer();
+		return MultiTenancyServerContextHolder.getTenant();
 	}
 
 }

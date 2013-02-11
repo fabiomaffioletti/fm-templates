@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.fm.template.multitenancy.dao.UserDAO;
 import com.fm.template.multitenancy.manager.UserManager;
 import com.fm.template.multitenancy.model.User;
-import com.fm.template.multitenancy.routing.MultiTenancyServer;
+import com.fm.template.multitenancy.routing.Tenant;
 
 @Service("userManager")
 public class UserManagerImpl implements UserManager {
@@ -16,22 +16,22 @@ public class UserManagerImpl implements UserManager {
 	private UserDAO userDAO;
 
 	@Override
-	public List<User> all(MultiTenancyServer multiTenancyServer) {
+	public List<User> all(Tenant multiTenancyServer) {
 		return userDAO.all();
 	}
 
 	@Override
-	public void save(MultiTenancyServer multiTenancyServer, User user) {
+	public void save(Tenant multiTenancyServer, User user) {
 		userDAO.save(user);
 	}
 
 	@Override
-	public void delete(MultiTenancyServer multiTenancyServer, User user) {
+	public void delete(Tenant multiTenancyServer, User user) {
 		userDAO.delete(user);
 	}
 
 	@Override
-	public User getByName(MultiTenancyServer multiTenancyServer, String name) {
+	public User getByName(Tenant multiTenancyServer, String name) {
 		return userDAO.getByName(name);
 	}
 
